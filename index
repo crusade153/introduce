@@ -241,7 +241,7 @@
 
     <script>
         // ⚠️ Apps Script 배포 후 여기에 Web App URL을 입력하세요
-        const API_URL = 'https://script.google.com/macros/s/AKfycbwb274E7zRq-FelyTTv7suwTJlG7kMNjBG9wwiXgYtujiDPcf-wTJaZnj38I3BtMh8/exec';
+        const API_URL = 'https://script.google.com/macros/s/AKfycby5yxJoTGx3EgFTyCKvtm31frYqP-J58eih3gvWFJcwzPqwBDSoVMRtPBYD3M1X39Y/exec';
 
         // 데이터 로드
         async function loadData(sheet) {
