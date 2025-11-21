@@ -20,17 +20,39 @@
         .section-title::after { content: ''; display: block; width: 60%; height: 6px; background: linear-gradient(90deg, #2563eb, #60a5fa); margin-top: 0.5rem; border-radius: 3px; }
         
         /* 카드 스타일 */
-        .card { background: white; border-radius: 1rem; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card { background: white; border-radius: 1rem; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; }
         .card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border-color: #bfdbfe; }
         
         /* 타임라인 스타일 */
         .timeline-line { position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: #e2e8f0; z-index: 0; }
         .timeline-dot { width: 42px; height: 42px; border-radius: 50%; background: white; border: 4px solid #2563eb; z-index: 10; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #2563eb; position: relative; box-shadow: 0 0 0 4px #dbeafe; }
         
-        /* 프로젝트 이미지 */
+        /* 프로젝트 이미지 블러 처리 */
         .img-wrapper { overflow: hidden; border-radius: 0.75rem; background-color: #f1f5f9; aspect-ratio: 16/9; position: relative; }
-        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .img-wrapper img { 
+            width: 100%; height: 100%; object-fit: cover; 
+            filter: blur(5px); /* 블러 처리 */
+            transition: transform 0.5s ease; 
+        }
         .card:hover .img-wrapper img { transform: scale(1.05); }
+        
+        /* 보안 문구 오버레이 */
+        .security-overlay {
+            position: absolute; inset: 0;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(0,0,0,0.2); pointer-events: none;
+        }
+        .security-badge {
+            background: rgba(0,0,0,0.6); color: white; padding: 4px 12px; border-radius: 20px;
+            font-size: 0.75rem; font-weight: 600; display: flex; align-items: center; gap: 6px;
+        }
+
+        /* 입력 폼 스타일 */
+        .form-input {
+            width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 0.5rem;
+            transition: all 0.3s; margin-bottom: 1rem;
+        }
+        .form-input:focus { outline: none; border-color: #2563eb; ring: 2px solid #bfdbfe; }
         
         /* 강조 텍스트 */
         .highlight { background: linear-gradient(120deg, #dbeafe 0%, #dbeafe 100%); background-repeat: no-repeat; background-size: 100% 40%; background-position: 0 90%; font-weight: 700; }
@@ -92,8 +114,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="absolute -top-10 -right-10 w-24 h-24 bg-blue-500 rounded-full opacity-20 blur-xl"></div>
-                <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-indigo-500 rounded-full opacity-20 blur-xl"></div>
             </div>
         </div>
     </section>
@@ -169,16 +189,6 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="bg-slate-50 p-4 rounded-lg">
-                                    <h4 class="font-bold text-sm text-slate-700 mb-2">주요 업무 (Responsibilities)</h4>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="bg-white border border-slate-200 px-2 py-1 rounded text-xs text-slate-600">원가결산</span>
-                                        <span class="bg-white border border-slate-200 px-2 py-1 rounded text-xs text-slate-600">표준원가 관리</span>
-                                        <span class="bg-white border border-slate-200 px-2 py-1 rounded text-xs text-slate-600">손익 시뮬레이션</span>
-                                        <span class="bg-white border border-slate-200 px-2 py-1 rounded text-xs text-slate-600">재고 수불 관리</span>
-                                        <span class="bg-white border border-slate-200 px-2 py-1 rounded text-xs text-slate-600">ERP PI</span>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -253,7 +263,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -263,28 +272,23 @@
             <div class="text-center mb-16">
                 <h2 class="section-title keep-all">자체 개발 시스템 (Web Apps)</h2>
                 <p class="text-slate-600 mt-4 text-lg keep-all">
-                    기존 ERP의 한계를 보완하고, 현업의 사각지대를 해소하기 위해<br>
-                    기획부터 개발, 배포까지 100% 자체 역량으로 구축한 시스템입니다.
+                    기존 ERP의 한계를 보완하기 위해 기획부터 개발까지 100% 자체 역량으로 구축한 시스템입니다.<br>
+                    <span class="text-red-500 font-bold text-sm mt-2 block">※ 대외비 데이터 보호를 위해 시스템 화면은 블러 처리되었습니다.</span>
                 </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
                 <div class="card group flex flex-col h-full">
                     <div class="img-wrapper">
                         <img src="https://i.postimg.cc/Gh3mCjXc/image.png" alt="일일 생산 실적 및 원가 자동 집계">
-                        <div class="absolute top-3 right-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">Cost Mgmt</div>
+                        <div class="security-overlay"><span class="security-badge"><i class="fas fa-lock"></i> Security Blur</span></div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-bold text-xl text-slate-900 mb-2 group-hover:text-blue-600 transition">일일 원가 및 생산성 집계</h3>
-                        <p class="text-slate-600 text-sm mb-4 keep-all flex-grow">
-                            MES와 ERP 데이터를 연동하여 제조원가를 실시간 모니터링. 표준원가 대비 차이 분석을 통해 수율 로스를 즉시 파악합니다.
-                        </p>
+                        <p class="text-slate-600 text-sm mb-4 keep-all flex-grow">MES-ERP 연동 제조원가 실시간 모니터링 및 수율 로스 즉시 파악 시스템.</p>
                         <div class="border-t border-slate-100 pt-4 mt-auto">
-                            <p class="text-xs font-bold text-slate-500 mb-2">KEY FEATURES</p>
-                            <div class="flex gap-2 flex-wrap">
-                                <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">BCG 모델링</span>
-                                <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">자동 알림</span>
-                            </div>
+                            <div class="flex gap-2 flex-wrap"><span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-bold">BCG 모델링</span></div>
                         </div>
                     </div>
                 </div>
@@ -292,19 +296,13 @@
                 <div class="card group flex flex-col h-full">
                     <div class="img-wrapper">
                         <img src="https://i.postimg.cc/mDMtP29r/image.png" alt="실시간 재고 관리">
-                        <div class="absolute top-3 right-3 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">Inventory</div>
+                        <div class="security-overlay"><span class="security-badge"><i class="fas fa-lock"></i> Security Blur</span></div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-bold text-xl text-slate-900 mb-2 group-hover:text-blue-600 transition">실시간 재고/소비기한 관리</h3>
-                        <p class="text-slate-600 text-sm mb-4 keep-all flex-grow">
-                            재고 수불부와 소비기한을 시각화하여 폐기 위험 재고를 선제적으로 관리. 선입선출 위반 사례를 0건으로 만들었습니다.
-                        </p>
+                        <p class="text-slate-600 text-sm mb-4 keep-all flex-grow">재고 수불부 및 소비기한 시각화. 폐기 위험 재고 선제적 관리 시스템.</p>
                         <div class="border-t border-slate-100 pt-4 mt-auto">
-                            <p class="text-xs font-bold text-slate-500 mb-2">KEY FEATURES</p>
-                            <div class="flex gap-2 flex-wrap">
-                                <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">위험 경고</span>
-                                <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">스트레스 테스트</span>
-                            </div>
+                            <div class="flex gap-2 flex-wrap"><span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-bold">위험 경고</span></div>
                         </div>
                     </div>
                 </div>
@@ -312,19 +310,13 @@
                 <div class="card group flex flex-col h-full">
                     <div class="img-wrapper">
                         <img src="https://i.postimg.cc/c1RvZCZF/52.png" alt="근무시간 관리">
-                        <div class="absolute top-3 right-3 bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full">HR DX</div>
+                        <div class="security-overlay"><span class="security-badge"><i class="fas fa-lock"></i> Security Blur</span></div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-bold text-xl text-slate-900 mb-2 group-hover:text-blue-600 transition">AI 근태 예측/관리 시스템</h3>
-                        <p class="text-slate-600 text-sm mb-4 keep-all flex-grow">
-                            52시간 근무제 위반 리스크를 사전에 예측하고, 가용 인력을 실시간으로 파악하여 생산 계획 수립을 지원합니다.
-                        </p>
+                        <p class="text-slate-600 text-sm mb-4 keep-all flex-grow">52시간 근무제 위반 리스크 예측 및 가용 인력 실시간 파악.</p>
                         <div class="border-t border-slate-100 pt-4 mt-auto">
-                            <p class="text-xs font-bold text-slate-500 mb-2">KEY FEATURES</p>
-                            <div class="flex gap-2 flex-wrap">
-                                <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">근태 시뮬레이션</span>
-                                <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">리스크 차단</span>
-                            </div>
+                            <div class="flex gap-2 flex-wrap"><span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-bold">HR DX</span></div>
                         </div>
                     </div>
                 </div>
@@ -332,19 +324,13 @@
                 <div class="card group flex flex-col h-full">
                     <div class="img-wrapper">
                         <img src="https://i.postimg.cc/5tMFHy0X/image.png" alt="생산성 대시보드">
-                        <div class="absolute top-3 right-3 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">Productivity</div>
+                        <div class="security-overlay"><span class="security-badge"><i class="fas fa-lock"></i> Security Blur</span></div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-bold text-xl text-slate-900 mb-2 group-hover:text-blue-600 transition">실시간 생산성 대시보드</h3>
-                        <p class="text-slate-600 text-sm mb-4 keep-all flex-grow">
-                            라인별 인당/인시당 생산성(UPMH)을 실시간 추적하여 목표 대비 Gap을 분석하고 즉각적인 현장 피드백을 제공합니다.
-                        </p>
+                        <p class="text-slate-600 text-sm mb-4 keep-all flex-grow">라인별 인당/인시당 생산성(UPMH) 추적 및 목표 대비 Gap 분석.</p>
                         <div class="border-t border-slate-100 pt-4 mt-auto">
-                            <p class="text-xs font-bold text-slate-500 mb-2">KEY FEATURES</p>
-                            <div class="flex gap-2 flex-wrap">
-                                <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">Gap 분석</span>
-                                <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">트렌드 추적</span>
-                            </div>
+                            <div class="flex gap-2 flex-wrap"><span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-bold">Trend Tracking</span></div>
                         </div>
                     </div>
                 </div>
@@ -352,19 +338,55 @@
                 <div class="card group flex flex-col h-full">
                     <div class="img-wrapper">
                          <img src="https://i.postimg.cc/bYWyW2Zs/image.png" alt="마감 모니터링">
-                        <div class="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">Process</div>
+                        <div class="security-overlay"><span class="security-badge"><i class="fas fa-lock"></i> Security Blur</span></div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-bold text-xl text-slate-900 mb-2 group-hover:text-blue-600 transition">일일 실적 마감 모니터링</h3>
-                        <p class="text-slate-600 text-sm mb-4 keep-all flex-grow">
-                            마감 진척률을 실시간 대시보드로 시각화하고, 미결 건에 대해 담당자에게 '핀셋 알림'을 발송하여 마감 시간을 획기적으로 단축했습니다.
-                        </p>
+                        <p class="text-slate-600 text-sm mb-4 keep-all flex-grow">마감 진척률 실시간 시각화 및 미결 건 담당자 '핀셋 알림' 발송.</p>
                         <div class="border-t border-slate-100 pt-4 mt-auto">
-                            <p class="text-xs font-bold text-slate-500 mb-2">KEY FEATURES</p>
-                            <div class="flex gap-2 flex-wrap">
-                                <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">핀셋 알림</span>
-                                <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">진척률 관리</span>
-                            </div>
+                            <div class="flex gap-2 flex-wrap"><span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-bold">Process Innovation</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card group flex flex-col h-full">
+                    <div class="img-wrapper">
+                        <img src="https://i.postimg.cc/7Zq5DcQb/image.png" alt="재료비 분석">
+                        <div class="security-overlay"><span class="security-badge"><i class="fas fa-lock"></i> Security Blur</span></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-bold text-xl text-slate-900 mb-2 group-hover:text-blue-600 transition">재료비 원단위 심층 분석</h3>
+                        <p class="text-slate-600 text-sm mb-4 keep-all flex-grow">재료비 변동 요인을 수율(내부)과 단가(외부)로 분리하여 분석.</p>
+                        <div class="border-t border-slate-100 pt-4 mt-auto">
+                            <div class="flex gap-2 flex-wrap"><span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-bold">Deep Dive</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card group flex flex-col h-full">
+                    <div class="img-wrapper">
+                        <img src="https://i.postimg.cc/jj1qTWMm/image.png" alt="제조비용 모니터링">
+                        <div class="security-overlay"><span class="security-badge"><i class="fas fa-lock"></i> Security Blur</span></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-bold text-xl text-slate-900 mb-2 group-hover:text-blue-600 transition">제조비용 실적 모니터링</h3>
+                        <p class="text-slate-600 text-sm mb-4 keep-all flex-grow">예산 대비 집행 실적 실시간 비교 및 이상치(Outlier) 자동 감지.</p>
+                        <div class="border-t border-slate-100 pt-4 mt-auto">
+                            <div class="flex gap-2 flex-wrap"><span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-bold">Budget Control</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card group flex flex-col h-full">
+                    <div class="img-wrapper">
+                        <img src="https://i.postimg.cc/8kw3trg5/image.png" alt="자재 구매 최적화">
+                        <div class="security-overlay"><span class="security-badge"><i class="fas fa-lock"></i> Security Blur</span></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-bold text-xl text-slate-900 mb-2 group-hover:text-blue-600 transition">자재 구매 최적화 시스템</h3>
+                        <p class="text-slate-600 text-sm mb-4 keep-all flex-grow">사용량 및 단가 분석을 통한 데이터 기반 구매 액션 플랜 제안.</p>
+                        <div class="border-t border-slate-100 pt-4 mt-auto">
+                            <div class="flex gap-2 flex-wrap"><span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-bold">Optimization</span></div>
                         </div>
                     </div>
                 </div>
@@ -372,52 +394,75 @@
                 <div class="card group flex flex-col h-full">
                     <div class="img-wrapper">
                         <img src="https://i.postimg.cc/fbBX6Zzc/SCM.png" alt="S&OP 대시보드">
-                        <div class="absolute top-3 right-3 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">SCM</div>
+                        <div class="security-overlay"><span class="security-badge"><i class="fas fa-lock"></i> Security Blur</span></div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-bold text-xl text-slate-900 mb-2 group-hover:text-blue-600 transition">S&OP 통합 대시보드</h3>
-                        <p class="text-slate-600 text-sm mb-4 keep-all flex-grow">
-                            영업(수주)-생산-재고 데이터를 통합하여 납기 대응 능력을 예측하고, 결품을 방지하는 SCM 관제탑 역할을 수행합니다.
-                        </p>
+                        <p class="text-slate-600 text-sm mb-4 keep-all flex-grow">수주-생산-재고 통합 데이터 기반 납기 예측 및 결품 방지.</p>
                         <div class="border-t border-slate-100 pt-4 mt-auto">
-                            <p class="text-xs font-bold text-slate-500 mb-2">KEY FEATURES</p>
-                            <div class="flex gap-2 flex-wrap">
-                                <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">S&OP</span>
-                                <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">납기 예측</span>
-                            </div>
+                            <div class="flex gap-2 flex-wrap"><span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-bold">SCM</span></div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
     <section id="contact" class="py-24 bg-slate-900 text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-slate-900 opacity-90"></div>
-        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-            <h2 class="text-4xl font-extrabold mb-8 keep-all">
-                "혁신은 문제를 인식하는 것에서 시작합니다."
-            </h2>
-            <p class="text-lg text-blue-100 mb-12 keep-all leading-relaxed">
-                16년의 원가관리 노하우와 자체 시스템 개발 역량을 갖춘 유경덕입니다.<br>
-                귀사의 비효율을 제거하고, 데이터 기반의 의사결정 체계를 구축할 준비가 되어 있습니다.
-            </p>
-            
-            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-10 border border-white/10">
-                <div class="grid md:grid-cols-2 gap-8 text-left">
-                    <div>
-                        <p class="text-slate-400 text-sm font-bold mb-1">PHONE</p>
-                        <p class="text-2xl font-bold">010-6490-3915</p>
-                    </div>
-                    <div>
-                        <p class="text-slate-400 text-sm font-bold mb-1">EMAIL</p>
-                        <a href="mailto:crusade153@gmail.com" class="text-2xl font-bold hover:text-blue-400 transition">crusade153@gmail.com</a>
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-4xl font-extrabold mb-6 keep-all">
+                        "귀사의 혁신 파트너가 되겠습니다."
+                    </h2>
+                    <p class="text-lg text-blue-100 mb-10 keep-all leading-relaxed">
+                        16년의 원가관리 노하우와 자체 시스템 개발 역량을 갖춘 유경덕입니다.
+                        비효율 제거와 데이터 기반 의사결정 체계 구축, 지금 바로 시작할 수 있습니다.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-xl">📱</div>
+                            <div>
+                                <p class="text-slate-400 text-xs font-bold">PHONE</p>
+                                <p class="text-xl font-bold">010-6490-3915</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-xl">📧</div>
+                            <div>
+                                <p class="text-slate-400 text-xs font-bold">EMAIL</p>
+                                <a href="mailto:crusade153@gmail.com" class="text-xl font-bold hover:text-blue-400 transition">crusade153@gmail.com</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="mt-8 pt-8 border-t border-white/10 text-center">
-                    <a href="mailto:crusade153@gmail.com" class="inline-block w-full md:w-auto px-10 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition shadow-lg hover:shadow-blue-500/50 text-lg">
-                        면접 제안하기
-                    </a>
+
+                <div class="bg-white rounded-2xl p-8 text-slate-800 shadow-2xl">
+                    <h3 class="text-2xl font-bold mb-6">문의 남기기</h3>
+                    <form id="contact-form">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-600 mb-2">이름 / 회사명</label>
+                            <input type="text" id="name" class="form-input" placeholder="성함 또는 회사명을 입력해주세요" required>
+                        </div>
+                        <div>
+                             <label class="block text-sm font-bold text-slate-600 mb-2">이메일</label>
+                             <input type="email" id="email" class="form-input" placeholder="답변 받으실 이메일" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-600 mb-2">제목</label>
+                            <input type="text" id="subject" class="form-input" placeholder="문의 제목" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-600 mb-2">내용</label>
+                            <textarea id="message" rows="4" class="form-input" placeholder="문의 내용을 입력해주세요" required></textarea>
+                        </div>
+                        <div id="form-message" class="hidden mb-4 p-3 rounded text-sm font-bold"></div>
+                        <button type="submit" class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition shadow-lg flex justify-center items-center gap-2">
+                            <span>전송하기</span> <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -428,5 +473,56 @@
         <p class="text-sm">© 2025 Yoo Kyoung-Deok. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        const API_URL = 'https://script.google.com/macros/s/AKfycby5yxJoTGx3EgFTyCKvtm31frYqP-J58eih3gvWFJcwzPqwBDSoVMRtPBYD3M1X39Y/exec';
+
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const button = e.target.querySelector('button');
+            const originalBtnText = button.innerHTML;
+            const messageDiv = document.getElementById('form-message');
+
+            // 폼 데이터 수집
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: `[제목] ${document.getElementById('subject').value}\n\n[내용]\n${document.getElementById('message').value}`
+            };
+
+            // UI 상태 변경 (로딩)
+            button.disabled = true;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 전송 중...';
+
+            try {
+                // 구글 시트로 전송 (no-cors 모드 사용 가능성 고려하여 처리)
+                await fetch(API_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(formData),
+                    mode: 'no-cors', // CORS 문제 회피용 (응답 내용 확인 불가)
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    }
+                });
+
+                // no-cors 모드에서는 성공 여부를 정확히 알 수 없으나, 
+                // 에러가 안 나면 전송된 것으로 간주합니다.
+                messageDiv.className = 'mb-4 p-3 rounded text-sm font-bold bg-green-100 text-green-700 block';
+                messageDiv.textContent = '✅ 문의가 성공적으로 전송되었습니다.';
+                e.target.reset();
+
+            } catch (error) {
+                console.error('Error:', error);
+                messageDiv.className = 'mb-4 p-3 rounded text-sm font-bold bg-red-100 text-red-700 block';
+                messageDiv.textContent = '❌ 전송에 실패했습니다. 이메일로 직접 연락 부탁드립니다.';
+            } finally {
+                button.disabled = false;
+                button.innerHTML = originalBtnText;
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            }
+        });
+    </script>
 </body>
 </html>
