@@ -3,713 +3,633 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>유경덕 | Cost & Innovation Expert</title>
-    
+    <title>유경덕 | AI 원가혁신 & 업무자동화 전문가</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        /* --- Variables & Reset --- */
-        :root {
-            --primary: #0f172a;      /* 딥 네이비: 신뢰, 전문성 */
-            --secondary: #1e293b;    /* 서브 네이비 */
-            --accent: #d97706;       /* 골드/앰버: 혁신, 가치 창출 */
-            --text-main: #334155;
-            --text-light: #64748b;
-            --bg-light: #f8fafc;
-            --white: #ffffff;
-            --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        html { scroll-behavior: smooth; }
-        
-        body {
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-            line-height: 1.7;
-            color: var(--text-main);
-            background-color: var(--white);
-            overflow-x: hidden;
-        }
-
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-
-        /* --- Components --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-padding { padding: 6rem 0; }
-
+        body { font-family: 'Pretendard', sans-serif; background-color: #f8fafc; }
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 1rem;
+            font-weight: 900;
+            font-size: 2.25rem;
+            color: #1e293b;
             position: relative;
-            display: inline-block;
+            padding-bottom: 0.75rem;
+            margin-bottom: 2.5rem;
+            word-break: keep-all;
         }
-        
         .section-title::after {
             content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--accent);
-            margin-top: 0.5rem;
-        }
-
-        .section-desc {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 4rem;
-            max-width: 600px;
-        }
-
-        /* --- Header --- */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.3s;
-        }
-
-        .nav-inner {
-            height: 80px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--primary);
-            letter-spacing: -0.5px;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2.5rem;
-        }
-
-        .nav-menu a {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--text-main);
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-menu a:hover { color: var(--accent); }
-
-        /* --- Hero Section --- */
-        .hero {
-            padding-top: 160px;
-            padding-bottom: 100px;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(217, 119, 6, 0.05) 0%, transparent 70%);
-            z-index: 0;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #3b82f6, #60a5fa);
+            border-radius: 2px;
         }
-
-        .hero-container {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
+        .card {
+            background: white;
+            border-radius: 1.25rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            border: 1px solid #f1f5f9;
         }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #bfdbfe;
         }
-
-        .hero-text h1 span { color: var(--accent); }
-
-        .hero-subtitle {
-            font-size: 1.35rem;
-            color: var(--text-light);
-            margin-bottom: 2.5rem;
-            font-weight: 500;
-        }
-
-        .btn-group { display: flex; gap: 1rem; }
-
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-weight: 700;
-            transition: all 0.3s;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: var(--white);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-primary:hover {
-            background: transparent;
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .btn-outline {
-            border: 2px solid var(--text-light);
-            color: var(--text-main);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .hero-image-wrap {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            aspect-ratio: 4/3;
+        .skill-tag {
+            background-color: #f0f9ff;
+            color: #0369a1;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
         
-        .hero-image-wrap img {
+        /* 프로젝트 이미지 스타일 개선 */
+        .image-container {
+            overflow: hidden;
+            border-radius: 0.75rem;
+            background-color: #e2e8f0;
+            position: relative;
+            aspect-ratio: 16 / 9; /* 비디오 비율 유지 */
+        }
+        .project-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease, filter 0.5s ease;
+            filter: contrast(0.95);
+        }
+        .card:hover .project-image {
+            transform: scale(1.05);
+            filter: contrast(1);
         }
 
-        /* --- Core Competencies (Grid) --- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid #e2e8f0;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow);
-            border-color: var(--accent);
-        }
-
-        .skill-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(15, 23, 42, 0.05);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-card:hover .skill-icon {
-            background: var(--accent);
-            color: var(--white);
-        }
-
-        .skill-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-        }
-
-        /* --- Experience (Vertical Timeline) --- */
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        /* Vertical Line */
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background-color: #e2e8f0;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1px;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-            opacity: 0; /* Animation Trigger */
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .timeline-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background-color: var(--white);
-            border: 4px solid var(--accent);
-            top: 20px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .left { left: 0; text-align: right; }
-        .right { left: 50%; text-align: left; }
-
-        .left::after { right: -10px; }
-        .right::after { left: -10px; }
-
-        .content-box {
-            padding: 2rem;
-            background-color: var(--white);
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--primary);
-        }
-
-        .timeline-year {
-            font-size: 0.9rem;
-            font-weight: 800;
-            color: var(--accent);
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .timeline-role {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.2rem;
-        }
-
-        .timeline-company {
-            font-size: 1rem;
-            color: var(--text-light);
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .timeline-desc ul {
-            display: inline-block;
-            text-align: left;
-        }
-        
-        .timeline-desc li {
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-            color: var(--text-main);
-            position: relative;
-            padding-left: 1.2rem;
-        }
-        
-        .timeline-desc li::before {
-            content: "•";
-            color: var(--accent);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        /* --- Projects --- */
-        .projects-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .project-item {
-            background: var(--white);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            border: 1px solid #f1f5f9;
-        }
-
-        .project-item:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow);
-        }
-
-        .project-header {
-            background: var(--secondary);
-            padding: 2rem;
-            color: white;
-            position: relative;
-        }
-
-        .project-badge {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: var(--accent);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-
-        .project-body { padding: 2rem; }
-        
-        .project-title { font-size: 1.4rem; margin-bottom: 0.5rem; color: white;}
-        .project-tech { font-size: 0.9rem; opacity: 0.8; display: block; margin-bottom: 0.5rem;}
-
-        .impact-box {
-            background: #f0fdf4;
-            border: 1px solid #bbf7d0;
-            color: #166534;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* --- Contact --- */
-        .contact-section { background: var(--primary); color: white; }
-        .contact-section .section-title { color: white; }
-        .contact-section .section-desc { color: rgba(255,255,255,0.7); }
-        .contact-section .section-title::after { background: var(--white); }
-
-        .contact-form-container {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 3rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.1);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1.2rem;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 8px;
-            color: white;
-            font-size: 1rem;
-        }
-        
-        .form-input:focus {
-            outline: none;
-            border-color: var(--accent);
-            background: rgba(255,255,255,0.15);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1.2rem;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .submit-btn:hover { background: #b45309; }
-
-        /* --- Footer --- */
-        footer {
-            background: #020617;
-            color: #94a3b8;
-            padding: 3rem 0;
+        .metric-card {
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 1.25rem;
             text-align: center;
-            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .metric-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+        }
+        .metric-number {
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .metric-label {
+            font-size: 1rem;
+            color: #64748b;
+            font-weight: 600;
+            margin-top: 0.75rem;
         }
 
-        /* --- Media Queries --- */
-        @media (max-width: 768px) {
-            .hero-container { grid-template-columns: 1fr; text-align: center; }
-            .hero-text h1 { font-size: 2.5rem; }
-            .btn-group { justify-content: center; }
-            .timeline::after { left: 31px; }
-            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
-            .timeline-item::after { left: 21px; }
-            .left::after, .right::after { left: 21px; }
-            .left, .right { text-align: left; }
-            .nav-menu { display: none; } /* 모바일 메뉴 생략 (간소화) */
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.5);
+        }
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.6);
+        }
+        
+        /* 히어로 섹션 배경 */
+        .hero-bg {
+            background: linear-gradient(145deg, #ffffff 0%, #f0f7ff 100%);
         }
     </style>
 </head>
-<body>
+<body class="text-slate-700">
 
-    <header>
-        <div class="container nav-inner">
-            <div class="logo">YKD.</div>
-            <nav class="nav-menu">
-                <a href="#home">Home</a>
-                <a href="#about">Competency</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </nav>
+    <header class="hero-bg pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
+                <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left z-10 relative">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
+                        <span class="block">상상력으로 시스템을 창조하는</span>
+                        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mt-2">AI 원가혁신 개척자, 유경덕입니다</span>
+                    </h1>
+                    <p class="mt-6 text-lg text-slate-600 leading-relaxed font-medium">
+                        저는 현장의 문제를 가장 깊이 이해하는 <strong>'업무 전문가'</strong>로서, AI를 강력한 파트너 삼아 한계를 돌파해왔습니다.
+                        <strong>Gemini, GPT, Claude</strong> 등 다양한 AI와의 협업을 통해, 이제는 문제를 해결하는 <strong>웹앱(Web App)을 직접 개발</strong>하는 수준에 이르렀습니다.
+                    </p>
+                    <p class="mt-4 text-base text-slate-500 leading-relaxed">
+                        단순 반복 업무를 AI로 자동화하여 <strong>데이터 입력 즉시 정보가 완성되는 실시간 시스템</strong>을 구축하고,
+                        원가부터 리스크 관리까지 전방위적 혁신을 통해 골든타임 내 선제적 대응이 가능한 체계를 만들었습니다.
+                    </p>
+                    <div class="mt-10 sm:flex sm:justify-center lg:justify-start space-x-4">
+                        <a href="#projects" class="inline-flex items-center px-8 py-3 border border-transparent text-base font-bold rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition shadow-lg hover:shadow-xl">
+                            🚀 프로젝트 보기
+                        </a>
+                        <a href="#contact" class="inline-flex items-center px-8 py-3 border-2 border-blue-100 text-base font-bold rounded-xl text-blue-700 bg-white hover:border-blue-300 hover:bg-blue-50 transition">
+                            ✉️ 문의하기
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+                    <div class="relative mx-auto w-full rounded-3xl shadow-2xl overflow-hidden lg:max-w-md transform hover:scale-105 transition duration-500">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="AI 기반 데이터 분석 및 금융 혁신" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent mix-blend-multiply"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <section id="home" class="hero">
-        <div class="container hero-container">
-            <div class="hero-text">
-                <h1>Cost Intelligence <br><span>& Business Innovation</span></h1>
-                <p class="hero-subtitle">
-                    숫자 뒤의 맥락을 읽는 <strong>원가 관리 전문가</strong>이자,<br>
-                    비효율을 기술로 해결하는 <strong>업무 혁신 파트너</strong>입니다.
-                </p>
-                <div class="btn-group">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> 프로젝트 문의
-                    </a>
-                    <a href="#experience" class="btn btn-outline">
-                        <i class="fas fa-user-tie"></i> 경력 상세 보기
-                    </a>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-24">
+
+        <section id="key-achievements">
+            <h2 class="section-title">핵심 성과 (Key Achievements)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="metric-card">
+                    <div class="metric-number">40%</div>
+                    <h3 class="mt-4 text-xl font-bold text-slate-800">결산 리드타임 단축</h3>
+                    <p class="mt-2 text-sm text-slate-600 font-medium">D+5일 → D+3일 (2일 단축)<br>선제적 리스크 관리 실현</p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">100%</div>
+                    <h3 class="mt-4 text-xl font-bold text-slate-800">반복 업무 자동화</h3>
+                    <p class="mt-2 text-sm text-slate-600 font-medium">데이터 취합, 보고서 작성 등<br>수작업 업무 완전 해소</p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">Zero</div>
+                    <h3 class="mt-4 text-xl font-bold text-slate-800">데이터 처리 지연</h3>
+                    <p class="mt-2 text-sm text-slate-600 font-medium">입력 즉시 정보 생성/분석 완료<br>실시간 시스템 구현</p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">9+</div>
+                    <h3 class="mt-4 text-xl font-bold text-slate-800">자체 개발 혁신 시스템</h3>
+                    <p class="mt-2 text-sm text-slate-600 font-medium">원가, 재고, 생산, 인사 등<br>다분야 업무 혁신 시스템 개발</p>
                 </div>
             </div>
-            <div class="hero-image-wrap">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Business Analytics">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="about" class="section-padding" style="background: #fff;">
-        <div class="container">
-            <div class="section-title">Core Competencies</div>
-            <p class="section-desc">재무적 통찰력과 IT 기술력을 결합하여 기업의 Bottom-line을 개선합니다.</p>
+        <section id="career">
+            <h2 class="section-title">경력 (Career History)</h2>
+            <div class="card p-8 lg:p-10 bg-white">
+                <div class="space-y-10">
+                    <div class="relative pl-8 border-l-4 border-blue-500">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
+                            <div>
+                                <h3 class="text-2xl font-bold text-slate-800">(주)하림 / 원가관리팀</h3>
+                                <p class="text-blue-700 font-semibold mt-1">원가관리 담당 / Cost Management Specialist</p>
+                            </div>
+                            <span class="inline-block bg-blue-100 text-blue-800 py-1 px-3 rounded-full text-sm font-bold mt-2 md:mt-0">20XX.XX ~ 현재</span>
+                        </div>
+                        <ul class="list-disc list-inside text-slate-700 space-y-2 mt-4 text-lg">
+                            <li>ERP 기반 일일/월 원가 관리 및 분석 업무 총괄</li>
+                            <li><strong class="text-blue-700">9개 이상의 업무 자동화 시스템 자체 개발 및 운영</strong></li>
+                            <li>AI 협업을 통한 실시간 데이터 처리 시스템 구축</li>
+                            <li>월 결산 리드타임 40% 단축 (D+5 → D+3) 달성</li>
+                        </ul>
+                    </div>
+
+                    <div class="relative pl-8 border-l-4 border-slate-300">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-600">[이전 경력사항]</h3>
+                                <p class="text-slate-500 mt-1">[직책 / 담당업무]</p>
+                            </div>
+                            <span class="inline-block bg-slate-100 text-slate-600 py-1 px-3 rounded-full text-sm font-bold mt-2 md:mt-0">20XX.XX ~ 20XX.XX</span>
+                        </div>
+                        <ul class="list-disc list-inside text-slate-500 space-y-2 mt-4">
+                            <li>[주요 업무 및 성과 1]</li>
+                            <li>[주요 업무 및 성과 2]</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ai-journey">
+            <h2 class="section-title">My AI Journey: 비개발자에서 시스템 개발자로</h2>
+            <div class="card p-8 md:p-12 bg-gradient-to-br from-white to-blue-50/30 border-blue-100">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-10">
+                        <div class="relative pl-6 border-l-4 border-slate-300">
+                            <h3 class="text-2xl font-bold text-slate-800">1. 시작: "불편함에 대한 질문"</h3>
+                            <p class="mt-3 text-lg text-slate-600 leading-relaxed">반복되는 수작업과 휴먼 에러로 인한 비효율. 기존 툴의 한계 앞에서 '내가 직접 해결할 수 없을까?'라는 질문을 던졌습니다. 개발자가 아니었기에, 새로운 방식이 필요했습니다.</p>
+                        </div>
+                        <div class="relative pl-6 border-l-4 border-blue-500">
+                            <h3 class="text-2xl font-bold text-slate-800">2. 과정: "AI라는 강력한 파트너"</h3>
+                            <p class="mt-3 text-lg text-slate-600 leading-relaxed">코딩 지식이 부족했지만, AI를 24시간 페어 프로그래머로 삼았습니다. 자연어로 로직을 설명하고, AI가 제안한 코드를 학습하며 끊임없이 성장했습니다.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="skill-tag">Gemini</span><span class="skill-tag">GPT-4</span><span class="skill-tag">Claude 3</span><span class="skill-tag">Windsurf</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl shadow-xl border border-blue-100 text-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-blue-50 via-transparent to-transparent opacity-50"></div>
+                        <div class="relative z-10">
+                            <div class="text-5xl mb-4">🚀</div>
+                            <h3 class="text-3xl font-extrabold text-blue-900 mb-4">3. 결과: 상상을 현실로</h3>
+                            <p class="text-lg text-slate-700 leading-relaxed mb-8">
+                                수많은 시행착오 끝에, <strong>Google Apps Script 기반의 완전한 웹앱</strong>을 제 손으로 완성했습니다.
+                                단순 반복 패턴을 AI로 분석하고 자동화하여, <strong>데이터 입력 즉시 정보가 완성되는 실시간 처리 환경</strong>을 구축해냈습니다.
+                            </p>
+                            <div class="space-y-3 font-bold">
+                                <div class="bg-blue-100 text-blue-800 py-3 px-4 rounded-xl">✅ 자체 업무 자동화 시스템 개발 완료</div>
+                                <div class="bg-indigo-100 text-indigo-800 py-3 px-4 rounded-xl">✅ AI 기반 패턴 분석 및 개선 제안 시스템</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">자체 개발 시스템을 통한 업무 혁신 프로젝트</h2>
+            <p class="text-slate-600 mb-8 text-lg">※ 각 카드의 이미지는 실제 구현된 시스템의 기능과 목적을 시각화한 것입니다.</p>
             
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon"><i class="fas fa-chart-pie"></i></div>
-                    <h3 class="skill-title">Strategic Cost Mgmt.</h3>
-                    <p>표준 원가 설정, 차이 분석 및 BEP 시뮬레이션을 통해 수익성을 극대화하는 전략적 원가 관리 수행</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="card flex flex-col h-full overflow-hidden group">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="일일 생산 실적 및 원가 자동 집계 대시보드" class="project-image">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h4 class="font-bold text-xl text-slate-900 group-hover:text-blue-600 transition">일일 원가 및 생산성 집계 시스템</h4>
+                        <p class="mt-3 text-slate-600 leading-relaxed flex-grow">MES-ERP 연계를 통해 실시간 제조원가를 모니터링하고, 표준원가와의 차이를 수율/생산성 관점에서 자동 분석합니다.</p>
+                        <div class="mt-6 pt-4 border-t border-slate-100">
+                            <span class="text-sm font-bold text-slate-700 block mb-2">주요 기능:</span>
+                            <ul class="text-sm text-slate-600 space-y-1">
+                                <li>• BCG 모델링 기반 데이터 세그먼트</li>
+                                <li>• 이상 징후 담당자 자동 알림</li>
+                                <li>• 경영진 원클릭 실적 확인</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon"><i class="fas fa-robot"></i></div>
-                    <h3 class="skill-title">Process Automation</h3>
-                    <p>Python, VBA, RPA를 활용하여 반복적인 마감 업무와 데이터 집계 프로세스를 100% 자동화</p>
+
+                <div class="card flex flex-col h-full overflow-hidden group">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop" alt="실시간 재고 및 소비기한 관리 시스템" class="project-image">
+                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h4 class="font-bold text-xl text-slate-900 group-hover:text-blue-600 transition">실시간 재고 및 소비기한 관리</h4>
+                        <p class="mt-3 text-slate-600 leading-relaxed flex-grow">재고 현황과 소비기한을 실시간으로 추적하여 위험도를 선제적으로 알리고, 장기재고를 분류하여 손실을 최소화합니다.</p>
+                        <div class="mt-6 pt-4 border-t border-slate-100">
+                            <span class="text-sm font-bold text-slate-700 block mb-2">주요 기능:</span>
+                            <ul class="text-sm text-slate-600 space-y-1">
+                                <li>• 소비기한 스트레스 테스트 (0~365일)</li>
+                                <li>• 판매 가능/불가능 재고 즉시 파악</li>
+                                <li>• 위험 재고 자동 알림 서비스</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon"><i class="fas fa-database"></i></div>
-                    <h3 class="skill-title">Data Driven Decision</h3>
-                    <p>ERP 데이터 정제 및 BI 대시보드 구축을 통해 경영진의 신속하고 정확한 의사결정 지원</p>
+
+                <div class="card flex flex-col h-full overflow-hidden group">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=2076&auto=format&fit=crop" alt="AI 기반 근무시간 예측 시스템" class="project-image">
+                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h4 class="font-bold text-xl text-slate-900 group-hover:text-blue-600 transition">AI 기반 근무시간 예측 시스템</h4>
+                        <p class="mt-3 text-slate-600 leading-relaxed flex-grow">개인별 근태 데이터를 기반으로 잔여 근무시간을 예측하여 52시간제 위반 리스크를 차단하고 인력 운영을 최적화합니다.</p>
+                         <div class="mt-6 pt-4 border-t border-slate-100">
+                            <span class="text-sm font-bold text-slate-700 block mb-2">주요 기능:</span>
+                            <ul class="text-sm text-slate-600 space-y-1">
+                                <li>• 근무시간 예측 시뮬레이션</li>
+                                <li>• 구간별(경고/위험) 자동 알림</li>
+                                <li>• 가용 인원 실시간 조회</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card flex flex-col h-full overflow-hidden group">
+                     <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" alt="실시간 생산성 분석 대시보드" class="project-image">
+                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h4 class="font-bold text-xl text-slate-900 group-hover:text-blue-600 transition">실시간 생산성 분석 대시보드</h4>
+                        <p class="mt-3 text-slate-600 leading-relaxed flex-grow">인당/인시당 생산성을 실시간 추적하여 목표 대비 실적을 관리하고, 생산성 트렌드와 저하 요인을 즉시 파악합니다.</p>
+                        <div class="mt-6 pt-4 border-t border-slate-100">
+                            <span class="text-sm font-bold text-slate-700 block mb-2">주요 기능:</span>
+                            <ul class="text-sm text-slate-600 space-y-1">
+                                <li>• 목표 대비 실적 Gap 자동 분석</li>
+                                <li>• 인원 변동 현황 실시간 트래킹</li>
+                                <li>• 생산성 저하 요인 드릴다운</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="card flex flex-col h-full overflow-hidden group">
+                     <div class="image-container">
+                        <img src="https://plus.unsplash.com/premium_photo-1661876855550-2831198348cd?q=80&w=2070&auto=format&fit=crop" alt="일일 실적 마감 모니터링" class="project-image">
+                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h4 class="font-bold text-xl text-slate-900 group-hover:text-blue-600 transition">일일 실적 마감 모니터링 시스템</h4>
+                        <p class="mt-3 text-slate-600 leading-relaxed flex-grow">마감 진척률을 실시간 모니터링하고, 미비한 부분은 담당자에게 '핀셋 알림'을 보내 누락을 방지합니다.</p>
+                        <div class="mt-6 pt-4 border-t border-slate-100">
+                            <span class="text-sm font-bold text-slate-700 block mb-2">주요 기능:</span>
+                            <ul class="text-sm text-slate-600 space-y-1">
+                                <li>• 마감 진척률 실시간 대시보드</li>
+                                <li>• 미진 내용(오더명) 자동 식별</li>
+                                <li>• 담당자별 핀셋 알림 서비스</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="card flex flex-col h-full overflow-hidden group">
+                     <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1624969862644-791f3dc98927?q=80&w=2070&auto=format&fit=crop" alt="S&OP 연계 대시보드" class="project-image">
+                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h4 class="font-bold text-xl text-slate-900 group-hover:text-blue-600 transition">S&OP 연계 통합 대시보드</h4>
+                        <p class="mt-3 text-slate-600 leading-relaxed flex-grow">수주, 생산, 재고 데이터를 통합하여 생산 진척률을 추적하고, 고객 납기 대응 능력을 극대화합니다.</p>
+                        <div class="mt-6 pt-4 border-t border-slate-100">
+                            <span class="text-sm font-bold text-slate-700 block mb-2">주요 기능:</span>
+                            <ul class="text-sm text-slate-600 space-y-1">
+                                <li>• 납기 지연 가능성 사전 예측</li>
+                                <li>• 재고 연계 생산 계획 자동 조정 제안</li>
+                                <li>• 고객사별 주문 이행 현황 추적</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="experience" class="section-padding" style="background: var(--bg-light);">
-        <div class="container">
-            <div class="section-title">Professional Experience</div>
-            <p class="section-desc">지난 14년간 원가 관리 및 프로세스 혁신 분야에서 쌓아온 커리어 여정입니다.</p>
-            
-            <div class="timeline">
+        <section id="innovation-process">
+            <h2 class="section-title">혁신 프로세스: AI 기반 업무 자동화 체계</h2>
+            <div class="card p-8 md:p-12 bg-white">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                    <div class="hidden md:block absolute top-12 left-0 w-full h-1 bg-slate-100 -z-10"></div>
+                    
+                    <div class="text-center relative">
+                        <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-2xl w-24 h-24 flex items-center justify-center mx-auto text-3xl font-black shadow-lg mb-6 transform hover:scale-110 transition z-10 relative">1</div>
+                        <h4 class="font-bold text-xl text-slate-800 mb-2">패턴 발견</h4>
+                        <p class="text-slate-600 leading-relaxed">단순 반복 및 휴먼 에러가 잦은 업무의 잠재적 패턴을 AI로 분석</p>
+                    </div>
+                    <div class="text-center relative">
+                        <div class="bg-gradient-to-br from-indigo-500 to-indigo-600 text-white rounded-2xl w-24 h-24 flex items-center justify-center mx-auto text-3xl font-black shadow-lg mb-6 transform hover:scale-110 transition z-10 relative">2</div>
+                        <h4 class="font-bold text-xl text-slate-800 mb-2">자동화 설계</h4>
+                        <p class="text-slate-600 leading-relaxed">발견된 패턴을 바탕으로 AI와 협업하여 최적의 자동화 로직 설계</p>
+                    </div>
+                    <div class="text-center relative">
+                        <div class="bg-gradient-to-br from-purple-500 to-purple-600 text-white rounded-2xl w-24 h-24 flex items-center justify-center mx-auto text-3xl font-black shadow-lg mb-6 transform hover:scale-110 transition z-10 relative">3</div>
+                        <h4 class="font-bold text-xl text-slate-800 mb-2">실시간 처리</h4>
+                        <p class="text-slate-600 leading-relaxed">데이터 입력 즉시 정보가 완성되는 Zero 리드타임 시스템 구현</p>
+                    </div>
+                    <div class="text-center relative">
+                         <div class="bg-gradient-to-br from-pink-500 to-pink-600 text-white rounded-2xl w-24 h-24 flex items-center justify-center mx-auto text-3xl font-black shadow-lg mb-6 transform hover:scale-110 transition z-10 relative">4</div>
+                        <h4 class="font-bold text-xl text-slate-800 mb-2">지능형 분석</h4>
+                        <p class="text-slate-600 leading-relaxed">AI 학습을 통한 지속적인 패턴 분석 및 개선방안 자동 제안</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="risk-management">
+            <h2 class="section-title">선제적 리스크 관리 시스템</h2>
+            <div class="card p-8 lg:p-10">
+                <p class="text-lg text-slate-600 mb-8 text-center max-w-3xl mx-auto">결산 전 위험 요소를 사전에 세그먼트화하고 담당자에게 자동 알림을 발송하여, 골든타임 내 효과적인 대응이 가능한 체계를 구축했습니다.</p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-red-50 p-8 rounded-2xl border-2 border-red-200 hover:shadow-lg transition">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-red-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-black text-xl mr-3">!</div>
+                            <h4 class="font-bold text-2xl text-red-700">Critical Risk</h4>
+                        </div>
+                        <ul class="text-slate-700 space-y-3 font-medium">
+                            <li>🚨 즉시 조치 필요 항목</li>
+                            <li>📉 결산 마감 임박 이슈</li>
+                            <li>⚡ 담당자 긴급 알림 발송</li>
+                        </ul>
+                    </div>
+                    <div class="bg-amber-50 p-8 rounded-2xl border-2 border-amber-200 hover:shadow-lg transition">
+                        <div class="flex items-center mb-4">
+                             <div class="bg-amber-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-black text-xl mr-3">△</div>
+                            <h4 class="font-bold text-2xl text-amber-700">Warning</h4>
+                        </div>
+                        <ul class="text-slate-700 space-y-3 font-medium">
+                            <li>👀 주의 관찰 필요 항목</li>
+                            <li>📊 트렌드 이탈 징후</li>
+                            <li>🗓️ 일일 모니터링 대상</li>
+                        </ul>
+                    </div>
+                    <div class="bg-emerald-50 p-8 rounded-2xl border-2 border-emerald-200 hover:shadow-lg transition">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-emerald-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-black text-xl mr-3">✓</div>
+                            <h4 class="font-bold text-2xl text-emerald-700">Normal</h4>
+                        </div>
+                        <ul class="text-slate-700 space-y-3 font-medium">
+                            <li>✅ 정상 범위 내 운영</li>
+                            <li>🔄 주기적 검토 대상</li>
+                            <li>🛡️ 안정적 관리 상태</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="philosophy">
+            <h2 class="section-title">성과로 증명하는 혁신: 숫자가 말하는 가치</h2>
+            <div class="card p-8 md:p-12">
+                <div class="bg-gradient-to-r from-blue-600 to-indigo-600 p-10 rounded-3xl mb-12 text-center text-white shadow-xl">
+                    <h3 class="text-3xl font-extrabold mb-4 leading-tight">
+                        "말이 아닌 데이터로,<br>추상이 아닌 증거로 증명합니다."
+                    </h3>
+                    <p class="text-blue-100 text-xl leading-relaxed max-w-3xl mx-auto font-medium">
+                        비개발자가 만든 시스템이 실제 업무 현장에서 창출한 가치,<br>
+                        <strong>정량적 지표와 구체적 사례</strong>로 확인시켜 드립니다.
+                    </p>
+                </div>
                 
-                <div class="timeline-item left trigger-ani">
-                    <div class="content-box">
-                        <span class="timeline-year">2020 - Present</span>
-                        <h3 class="timeline-role">Business Innovation Manager</h3>
-                        <p class="timeline-company">OOO 제조/테크 기업 (차장)</p>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li>전사 디지털 전환(DT) 로드맵 수립 및 스마트 팩토리 비용 효율화 리딩</li>
-                                <li>실시간 원가 추적 대시보드 개발 (Tableau/Power BI)로 의사결정 시간 70% 단축</li>
-                                <li>생성형 AI 도입을 통한 사내 지식 관리 시스템(KMS) 현대화 프로젝트 총괄</li>
-                            </ul>
+                <div class="mb-12">
+                     <h4 class="font-bold text-center text-2xl text-slate-800 mb-8">💡 투자 대비 효과 (ROI) 분석</h4>
+                    <div class="grid md:grid-cols-3 gap-8 text-center">
+                        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+                            <div class="text-4xl font-black text-slate-400 mb-2">₩0</div>
+                            <p class="text-lg font-bold text-slate-700">개발 비용</p>
+                            <p class="text-sm text-slate-500">(AI 협업 + 무료 GAS 플랫폼)</p>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-blue-50 border border-blue-200">
+                            <div class="text-4xl font-black text-blue-600 mb-2">↓ 90%</div>
+                            <p class="text-lg font-bold text-slate-700">반복 업무 시간 단축</p>
+                            <p class="text-sm text-slate-500">(주 40시간 → 4시간 미만)</p>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-indigo-50 border border-indigo-200">
+                             <div class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-2">∞</div>
+                            <p class="text-lg font-bold text-slate-700">ROI 수익률</p>
+                            <p class="text-sm text-slate-500">(투자 0원, 효과 극대화)</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="timeline-item right trigger-ani">
-                    <div class="content-box">
-                        <span class="timeline-year">2013 - 2020</span>
-                        <h3 class="timeline-role">Cost Accounting Specialist</h3>
-                        <p class="timeline-company">OOO 중견 기업 (과장)</p>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li>ERP 고도화 프로젝트 핵심 멤버: 원가 모듈 프로세스 재설계 및 안정화</li>
-                                <li>제품별 수익성 분석 체계 정립 및 적자 품목 구조조정 제안 (연 5억 절감)</li>
-                                <li>Excel VBA를 활용한 결산 자동화 툴 배포, 팀 야근 시간 월 평균 20시간 단축</li>
-                            </ul>
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-2xl border border-blue-100 shadow-sm hover:shadow-md transition">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">⏱️</span>
+                            <h5 class="font-bold text-xl text-slate-800">시간 효율의 극대화</h5>
                         </div>
+                        <ul class="space-y-3 text-slate-700 font-medium">
+                            <li>▪ <strong>일일 원가 집계:</strong> 4시간 → 5분 (48배 단축)</li>
+                            <li>▪ <strong>월 결산 보고서:</strong> 2일 소요 → 즉시 생성 (100% 자동화)</li>
+                            <li>▪ <strong>재고 현황 확인:</strong> 30분 → 3초 (실시간 대시보드)</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl border border-green-100 shadow-sm hover:shadow-md transition">
+                         <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">🎯</span>
+                            <h5 class="font-bold text-xl text-slate-800">업무 정확도 향상</h5>
+                        </div>
+                        <ul class="space-y-3 text-slate-700 font-medium">
+                            <li>▪ <strong>데이터 입력 오류:</strong> 월 15건 → 0건 (자동 검증)</li>
+                            <li>▪ <strong>52시간 위반:</strong> 사전 예측으로 위반 0건 달성</li>
+                            <li>▪ <strong>재고 폐기 손실:</strong> 소비기한 관리로 30% 감소</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl border border-purple-100 shadow-sm hover:shadow-md transition">
+                         <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">📊</span>
+                            <h5 class="font-bold text-xl text-slate-800">의사결정 속도 혁신</h5>
+                        </div>
+                         <ul class="space-y-3 text-slate-700 font-medium">
+                            <li>▪ <strong>이슈 발견:</strong> 7일 후(주간회의) → 당일 즉시 알림</li>
+                            <li>▪ <strong>원가 변동 분석:</strong> 월말 사후 → 일일 실시간 트래킹</li>
+                            <li>▪ <strong>경영진 보고:</strong> 준비 1일 → 원클릭 즉시 확인</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="timeline-item left trigger-ani">
-                    <div class="content-box">
-                        <span class="timeline-year">2010 - 2013</span>
-                        <h3 class="timeline-role">Financial Analyst</h3>
-                        <p class="timeline-company">OOO 산업 (대리/주임)</p>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li>월차/연차 결산 지원 및 재무제표 작성 실무</li>
-                                <li>제조 경비 배부 기준 수립 및 현장 재고 실사 주관</li>
-                                <li>기초 데이터 클렌징 및 마스터 데이터 관리(MDM) 체계 구축 참여</li>
-                            </ul>
-                        </div>
+                <div class="mt-12 bg-slate-900 text-white p-10 rounded-3xl text-center shadow-2xl relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-800 to-indigo-900 opacity-50"></div>
+                    <div class="relative z-10">
+                        <p class="text-2xl font-bold mb-4 leading-snug">
+                            "기술은 도구일 뿐,<br>진짜 혁신은 문제를 정의하는 사람에게서 나옵니다."
+                        </p>
+                        <p class="text-blue-200 text-lg font-medium max-w-3xl mx-auto">
+                            비개발자도 AI와 협업하면 현장을 더 깊이 이해하는 실용적인 시스템을 만들 수 있습니다.<br>제가 만든 시스템과 숫자가 그것을 증명합니다.
+                        </p>
                     </div>
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="projects" class="section-padding">
-        <div class="container">
-            <div class="section-title">Key Projects</div>
-            <p class="section-desc">실질적인 비즈니스 임팩트를 창출한 주요 프로젝트 사례입니다.</p>
+        <section id="skills">
+            <h2 class="section-title">보유 기술 및 시스템 역량</h2>
+            <div class="card p-8 lg:p-10">
+                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="space-y-4">
+                        <h3 class="font-bold text-lg text-slate-800 flex items-center"><span class="text-2xl mr-2">💻</span>Development</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag">Google Apps Script</span><span class="skill-tag">JavaScript</span><span class="skill-tag">HTML/CSS</span>
+                        </div>
+                    </div>
+                    <div class="space-y-4 lg:col-span-2">
+                         <h3 class="font-bold text-lg text-slate-800 flex items-center"><span class="text-2xl mr-2">🤖</span>AI Platforms & Prompt Engineering</h3>
+                        <div class="flex flex-wrap gap-2">
+                           <span class="skill-tag bg-indigo-50 text-indigo-700">Gemini</span><span class="skill-tag bg-indigo-50 text-indigo-700">GPT-4</span><span class="skill-tag bg-indigo-50 text-indigo-700">Claude 3</span><span class="skill-tag bg-indigo-50 text-indigo-700">Windsurf</span><span class="skill-tag bg-indigo-50 text-indigo-700">Perplexity</span><span class="skill-tag bg-indigo-50 text-indigo-700">DeepSeek</span>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="font-bold text-lg text-slate-800 flex items-center"><span class="text-2xl mr-2">⚙️</span>Automation & Data</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag">UiPath (RPA)</span><span class="skill-tag">SQL</span><span class="skill-tag">VBA</span>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="font-bold text-lg text-slate-800 flex items-center"><span class="text-2xl mr-2">📊</span>BI & Reporting</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag">Looker Studio</span><span class="skill-tag">Tableau</span><span class="skill-tag">Power BI</span>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="font-bold text-lg text-slate-800 flex items-center"><span class="text-2xl mr-2">🏭</span>ERP / MES</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag">SAP (CO/FI)</span><span class="skill-tag">더존 ERP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-10 bg-blue-50 p-6 rounded-2xl border border-blue-200 flex items-start">
+                    <span class="text-3xl mr-4">💡</span>
+                    <div>
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">AI 협업 전문성 (AI Collaboration Expertise)</h4>
+                        <p class="text-slate-700 font-medium leading-relaxed">다양한 AI 플랫폼의 강점을 이해하고, 문제의 성격에 따라 최적의 AI를 선택하여 협업하는 독자적인 노하우를 보유하고 있습니다. 이를 통해 비개발자의 한계를 넘어 전문적인 웹앱 개발부터 복잡한 데이터 분석까지 수행합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <div class="projects-wrapper">
+        <section id="contact">
+            <h2 class="section-title">연락처 (Contact)</h2>
+            <div class="card p-10 text-center bg-gradient-to-b from-white to-slate-50">
+                <h3 class="text-3xl font-bold text-slate-800 mb-4">함께 혁신을 만들어가고 싶으시다면</h3>
+                <p class="text-lg text-slate-600 mb-10 font-medium">업무 자동화, AI 협업, 시스템 개발에 대해 언제든 열려있습니다.</p>
                 
-                <div class="project-item">
-                    <div class="project-header">
-                        <span class="project-tech">Python, SQL, Tableau</span>
-                        <h3 class="project-title">실시간 변동비 추적 시스템</h3>
-                        <span class="project-badge">Cost Saving</span>
+                <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:border-blue-300 transition group">
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition transform">👤</div>
+                        <h4 class="font-bold text-slate-800 mb-2 text-xl">이름</h4>
+                        <p class="text-slate-700 font-bold text-lg">유경덕</p>
                     </div>
-                    <div class="project-body">
-                        <p>원자재 가격 변동과 환율 영향을 실시간으로 반영하여 제품별 마진율을 예측하는 시스템 구축. 영업팀의 견적 산출 정확도를 획기적으로 개선함.</p>
-                        <div class="impact-box">
-                            <i class="fas fa-check-circle"></i> 영업 이익률 3.5% 개선 기여
-                        </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:border-green-300 transition group">
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition transform">📱</div>
+                        <h4 class="font-bold text-slate-800 mb-2 text-xl">휴대폰</h4>
+                        <a href="tel:010-6490-3915" class="text-green-600 font-bold text-lg hover:text-green-800 transition">010-6490-3915</a>
                     </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-header">
-                        <span class="project-tech">RPA (UiPath), Excel VBA</span>
-                        <h3 class="project-title">결산 마감 자동화 봇</h3>
-                        <span class="project-badge">Efficiency</span>
-                    </div>
-                    <div class="project-body">
-                        <p>월말마다 반복되던 15개의 ERP 리포트 다운로드, 가공, 전표 생성 업무를 RPA 봇으로 대체하여 무인 자동화 실현.</p>
-                        <div class="impact-box">
-                            <i class="fas fa-clock"></i> 월 마감 리드타임 3일 → 1일 단축
-                        </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:border-purple-300 transition group">
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition transform">📧</div>
+                        <h4 class="font-bold text-slate-800 mb-2 text-xl">이메일</h4>
+                        <a href="mailto:crusade153@gmail.com" class="text-purple-600 font-bold text-lg hover:text-purple-800 transition break-all">crusade153@gmail.com</a>
                     </div>
                 </div>
 
-                <div class="project-item">
-                    <div class="project-header">
-                        <span class="project-tech">Google Apps Script, Slack API</span>
-                        <h3 class="project-title">예산 초과 알림 봇</h3>
-                        <span class="project-badge">Control</span>
-                    </div>
-                    <div class="project-body">
-                        <p>부서별 예산 사용 현황을 실시간 모니터링하고, 80% 소진 시 부서장에게 자동으로 알림을 발송하여 선제적 비용 통제 환경 조성.</p>
-                        <div class="impact-box">
-                            <i class="fas fa-shield-alt"></i> 예산 초과 집행 건수 0건 달성
-                        </div>
-                    </div>
-                </div>
-
+                <a href="mailto:crusade153@gmail.com?subject=포트폴리오 문의" class="contact-link px-10 py-4 text-lg shadow-xl hover:shadow-2xl">
+                    🚀 이메일로 문의하기
+                </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="section-padding contact-section">
-        <div class="container">
-            <div class="section-title">Get In Touch</div>
-            <p class="section-desc">비즈니스 효율화와 원가 혁신에 대한 고민이 있다면 언제든 연락주세요.</p>
+    </main>
 
-            <div class="contact-form-container">
-                <form id="contact-form">
-                    <input type="text" class="form-input" placeholder="성함 / 회사명" required>
-                    <input type="email" class="form-input" placeholder="이메일 주소" required>
-                    <textarea class="form-input" rows="5" placeholder="문의하실 내용 (프로젝트 의뢰, 커피챗 등)" required></textarea>
-                    <button type="submit" class="submit-btn">메시지 보내기</button>
-                </form>
+    <footer class="bg-slate-900 text-slate-300 mt-24 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <p class="text-2xl font-bold text-white">유경덕 (Yoo Kyoung-Deok)</p>
+            <p class="font-medium text-slate-400">AI 원가혁신 전문가 | 업무 자동화 시스템 개발자</p>
+            <div class="flex justify-center space-x-4 text-sm font-medium">
+                <span>📞 010-6490-3915</span>
+                <span>|</span>
+                <span>✉️ crusade153@gmail.com</span>
             </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 유경덕. All Rights Reserved. Designed with Professionalism.</p>
+            <p class="text-sm text-slate-500 mt-8">&copy; 2025 유경덕. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <script>
-        // Scroll Animation Observer
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // 애니메이션 한 번만 실행
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.trigger-ani').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Form Handling (Mockup)
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('메시지가 성공적으로 전송되었습니다. (데모 기능)');
-            this.reset();
-        });
-    </script>
 </body>
 </html>
